@@ -1,0 +1,26 @@
+# Maintainer: resu-xuniL <lunux@lavache.com>
+pkgname=arcolinux-settings-git
+_pkgname=arcolinux-settings
+_destname=""
+#_licensedir="/usr/share/arcolinux/licenses/"
+pkgver=24.03
+pkgrel=01
+pkgdesc="Configuration setting for ArcoLinux"
+arch=('any')
+url="https://github.com/resu-xuniL/${_pkgname}"
+license=('GPL3')
+makedepends=('git')
+depends=('bash')
+conflicts=('settings_for_arcolinux-git')
+provides=("${pkgname}")
+options=(!strip !emptydirs)
+source=(${_pkgname}::"git+https://github.com/resu-xuniL/${_pkgname}.git")
+sha256sums=('SKIP')
+install='readme.install'
+package() {
+	# install -dm755 ${pkgdir}${_licensedir}${_pkgname}
+	# install -m644  ${srcdir}/${_pkgname}/LICENSE ${pkgdir}${_licensedir}${_pkgname}
+
+	install -dm755 ${pkgdir}${_destname}
+	cp -r  ${srcdir}/${_pkgname}${_destname}* ${pkgdir}${_destname}
+}
