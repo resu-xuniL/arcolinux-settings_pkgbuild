@@ -1,8 +1,9 @@
 # Maintainer: resu-xuniL <lunux@lavache.com>
+
+workdir=$(pwd)
 pkgname=arcolinux-settings-git
 _pkgname=arcolinux-settings
 _destname=""
-#_licensedir="/usr/share/arcolinux/licenses/"
 pkgver=24.03
 pkgrel=01
 pkgdesc="Configuration setting for ArcoLinux"
@@ -18,9 +19,7 @@ source=(${_pkgname}::"git+https://github.com/resu-xuniL/${_pkgname}.git")
 sha256sums=('SKIP')
 install='readme.install'
 package() {
-	# install -dm755 ${pkgdir}${_licensedir}${_pkgname}
-	# install -m644  ${srcdir}/${_pkgname}/LICENSE ${pkgdir}${_licensedir}${_pkgname}
-
 	install -dm755 ${pkgdir}${_destname}
-	cp -r  ${srcdir}/${_pkgname}${_destname}* ${pkgdir}${_destname}
+	cp -r  "${srcdir}/${_pkgname}${_destname}"* ${pkgdir}${_destname}
+	awk -i inplace -F= -v OFS== '$1=="pkgrel" {$2++; gsub($2,"0"$2,$2)} 1' ${workdir}/PKGBUILD
 }
