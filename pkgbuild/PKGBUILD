@@ -21,5 +21,5 @@ install='readme.install'
 package() {
 	install -dm755 ${pkgdir}${_destname}
 	cp -r  "${srcdir}/${_pkgname}${_destname}"* ${pkgdir}${_destname}
-	awk -i inplace -F= -v OFS== '$1=="pkgrel" {$2++; gsub($2,"0"$2,$2)} 1' ${workdir}/PKGBUILD
+	awk -i inplace -F= -v OFS== '$1=="pkgrel" {$2++; if ($2<10) gsub($2,"0"$2,$2)} 1' ${workdir}/PKGBUILD
 }
