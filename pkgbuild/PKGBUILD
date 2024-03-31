@@ -3,7 +3,7 @@
 workdir=$(pwd)
 pkgname=arcolinux-settings-git
 _pkgname=arcolinux-settings
-_destname=${HOME}
+_destname="/etc/skel"
 pkgver=24.03
 pkgrel=01
 pkgdesc="Configuration setting for ArcoLinux"
