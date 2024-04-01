@@ -1,4 +1,4 @@
-# Maintainer: resu-xuniL <lunux@lavache.com>
+# Maintainer: resu-xuniL <linux@lavache.com>
 
 workdir=$(pwd)
 pkgname=arcolinux-settings-git
