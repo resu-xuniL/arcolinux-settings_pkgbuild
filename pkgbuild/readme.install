@@ -1,6 +1,6 @@
 post_install() {
     echo "********************************************************************"
-    CURRENT_USER=$(who | cut -d " " -f 1 | cut -d $'\n' -f 1)
+    CURRENT_USER=$(who | cut -d ' ' -f1 | uniq)
     sudo mv -v /etc/skel/arcolinux-settings "/home/${CURRENT_USER}/Documents"
     sudo chown -R ${CURRENT_USER} "/home/${CURRENT_USER}/Documents/arcolinux-settings"
     chmod +x "/home/${CURRENT_USER}/Documents/arcolinux-settings/run.sh"
