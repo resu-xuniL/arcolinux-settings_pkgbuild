@@ -1,1 +1,1 @@
-resu-xuniL 's Arcolinux settings package builder
+resu-xuniL's Arcolinux settings package builder
